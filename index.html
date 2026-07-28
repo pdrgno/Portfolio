@@ -23,7 +23,6 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 60px; display: flex; align-items: center; }
   .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { font-weight: 600; font-size: 15px; color: var(--dark); text-decoration: none; letter-spacing: -0.2px; }
@@ -34,7 +33,6 @@
   .nav-cta { font-size: 13px; font-weight: 600; background: var(--accent); color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; transition: opacity .2s; }
   .nav-cta:hover { opacity: .85; }
 
-  /* HERO */
   .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 24px 60px; background: var(--white); position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: var(--light); clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%); z-index: 0; }
   .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
@@ -54,14 +52,12 @@
   .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-card.tall { grid-row: span 2; aspect-ratio: auto; }
 
-  /* SECTIONS */
   section { padding: 96px 24px; }
   .container { max-width: 1100px; margin: 0 auto; }
   .section-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
   .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 16px; }
   .section-sub { font-size: 16px; color: var(--mid); max-width: 540px; line-height: 1.7; }
 
-  /* ABOUT */
   #about { background: var(--white); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
   .about-text p { color: var(--mid); font-size: 16px; line-height: 1.75; margin-bottom: 20px; }
@@ -71,7 +67,6 @@
   .stat-num { font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
   .stat-label { font-size: 13px; color: var(--mid); line-height: 1.4; }
 
-  /* SERVICES */
   #services { background: var(--light); }
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
   .service-card { background: var(--white); border-radius: 16px; padding: 28px; border: 1px solid var(--border); transition: box-shadow .25s, transform .25s; }
@@ -80,7 +75,6 @@
   .service-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
   .service-card p { font-size: 14px; color: var(--mid); line-height: 1.6; }
 
-  /* PORTFOLIO */
   #portfolio { background: var(--white); }
   .portfolio-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; }
   .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -94,7 +88,6 @@
   .work-overlay span { font-size: 12px; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .06em; }
   .work-cat { position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,.92); backdrop-filter: blur(4px); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--dark); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); }
 
-  /* LIGHTBOX */
   .lb { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,.85); backdrop-filter: blur(6px); padding: 20px; overflow-y: auto; }
   .lb.open { display: flex; align-items: flex-start; justify-content: center; }
   .lb-box { background: var(--white); border-radius: 20px; max-width: 900px; width: 100%; margin: auto; overflow: hidden; position: relative; }
@@ -103,7 +96,6 @@
   .lb-imgs { display: grid; gap: 3px; }
   .lb-imgs.single { grid-template-columns: 1fr; }
   .lb-imgs.double { grid-template-columns: 1fr 1fr; }
-  .lb-imgs.gallery { grid-template-columns: 1fr 1fr; }
   .lb-imgs img { width: 100%; display: block; object-fit: cover; }
   .lb-imgs.single img { max-height: 60vh; object-fit: contain; background: var(--light); }
   .lb-info { padding: 28px 32px 32px; }
@@ -112,7 +104,6 @@
   .lb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .lb-tag { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; background: var(--light); color: var(--dark); padding: 5px 12px; border-radius: 20px; }
 
-  /* GALLERY CAROUSEL */
   .lb-gallery-wrap { position: relative; overflow: hidden; }
   .lb-gallery-track { display: flex; transition: transform .35s ease; }
   .lb-gallery-track img { flex: 0 0 100%; width: 100%; max-height: 65vh; object-fit: contain; background: #111; }
@@ -124,7 +115,6 @@
   .lb-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.3); border: none; cursor: pointer; transition: background .2s; }
   .lb-dot.active { background: #fff; }
 
-  /* CONTACT */
   #contact { background: var(--dark); color: #fff; }
   .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   #contact .section-title { color: #fff; }
@@ -143,10 +133,10 @@
   .form-submit { width: 100%; padding: 14px; background: var(--accent); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--font); transition: opacity .2s, transform .2s; margin-top: 8px; }
   .form-submit:hover { opacity: .88; transform: translateY(-1px); }
   .form-note { font-size: 12px; color: rgba(255,255,255,.3); text-align: center; margin-top: 12px; }
+  .form-success { display: none; text-align: center; padding: 24px; color: #4ade80; font-size: 16px; font-weight: 600; }
 
   footer { background: #111; padding: 24px; text-align: center; font-size: 13px; color: rgba(255,255,255,.3); }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero::before { display: none; }
@@ -170,9 +160,7 @@
 
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 </style>
 </head>
 <body>
@@ -259,67 +247,36 @@
       <p style="font-size:14px; color:var(--mid); max-width:280px; line-height:1.6;">Нажмите на проект, чтобы узнать подробнее</p>
     </div>
     <div class="portfolio-grid">
-
-      <!-- ЗТК — лайтбокс -->
       <div class="work reveal" onclick="openLb('lb-ztk')">
         <span class="work-cat">Логотип</span>
         <img src="Frame_98.jpg" alt="ЗТК салон красоты" loading="lazy">
-        <div class="work-overlay">
-          <h3>Салон красоты «ЗТК»</h3>
-          <span>Логотип · Фирменный стиль · Визитки</span>
-        </div>
+        <div class="work-overlay"><h3>Салон красоты «ЗТК»</h3><span>Логотип · Фирменный стиль · Визитки</span></div>
       </div>
-
-      <!-- Soroka Cakery — лайтбокс -->
       <div class="work reveal" onclick="openLb('lb-soroka')">
         <span class="work-cat">Логотип</span>
         <img src="Frame_97.jpg" alt="Soroka Cakery" loading="lazy">
-        <div class="work-overlay">
-          <h3>Soroka Cakery</h3>
-          <span>Логотип · Брендинг упаковки</span>
-        </div>
+        <div class="work-overlay"><h3>Soroka Cakery</h3><span>Логотип · Брендинг упаковки</span></div>
       </div>
-
-      <!-- AC Schule — лайтбокс -->
       <div class="work reveal" onclick="openLb('lb-acschule')">
         <span class="work-cat">Логотип</span>
         <img src="Frame_116.jpg" alt="AC Schule" loading="lazy">
-        <div class="work-overlay">
-          <h3>AC Schule</h3>
-          <span>Логотип · Онлайн-школа немецкого</span>
-        </div>
+        <div class="work-overlay"><h3>AC Schule</h3><span>Логотип · Онлайн-школа немецкого</span></div>
       </div>
-
-      <!-- Glampberry — ссылка на сайт -->
       <a class="work wide reveal" href="https://glampberry.ru" target="_blank" rel="noopener">
         <span class="work-cat">Веб-дизайн</span>
         <img src="Group_97.jpg" alt="Glampberry сайт" loading="lazy">
-        <div class="work-overlay">
-          <h3>Glampberry</h3>
-          <span>Сайт · Глэмпинг в Самаре · ↗ glampberry.ru</span>
-        </div>
+        <div class="work-overlay"><h3>Glampberry</h3><span>Сайт · Глэмпинг в Самаре · ↗ glampberry.ru</span></div>
       </a>
-
-      <!-- Дэнглиш — ссылка на сайт (исправлена) -->
       <a class="work reveal" href="https://дэнглишсамара.рф" target="_blank" rel="noopener">
         <span class="work-cat">Веб-дизайн</span>
         <img src="Group_98.jpg" alt="Дэнглиш сайт" loading="lazy">
-        <div class="work-overlay">
-          <h3>Языковой клуб «Дэнглиш»</h3>
-          <span>Сайт · Языковой центр · ↗ дэнглишсамара.рф</span>
-        </div>
+        <div class="work-overlay"><h3>Языковой клуб «Дэнглиш»</h3><span>Сайт · Языковой центр · ↗ дэнглишсамара.рф</span></div>
       </a>
-
-      <!-- AirPods — галерея-лайтбокс -->
       <div class="work reveal" onclick="openLb('lb-airpods')">
         <span class="work-cat">Маркетплейс</span>
         <img src="Мой_первый_сайт.jpg" alt="AirPods Pro" loading="lazy">
-        <div class="work-overlay">
-          <h3>AirPods Pro</h3>
-          <span>Лендинг · Карточки · Рич-контент · Баннеры</span>
-        </div>
+        <div class="work-overlay"><h3>AirPods Pro</h3><span>Лендинг · Карточки · Рич-контент · Баннеры</span></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -328,17 +285,11 @@
 <div class="lb" id="lb-ztk" onclick="closeLbOutside(event, 'lb-ztk')">
   <div class="lb-box">
     <button class="lb-close" onclick="closeLb('lb-ztk')">✕</button>
-    <div class="lb-imgs single">
-      <img src="Frame_98.jpg" alt="ЗТК">
-    </div>
+    <div class="lb-imgs single"><img src="Frame_98.jpg" alt="ЗТК"></div>
     <div class="lb-info">
       <h2>Салон красоты «Здесь творят красоту»</h2>
       <p>Разработка логотипа для студии красоты. Монограмма «ЗТК» вписана в круглую цветочную рамку — элегантный и женственный образ. Терракотово-бежевая палитра подчёркивает теплоту и профессионализм бренда. Фирменный стиль применён на визитках.</p>
-      <div class="lb-tags">
-        <span class="lb-tag">Логотип</span>
-        <span class="lb-tag">Фирменный стиль</span>
-        <span class="lb-tag">Визитки</span>
-      </div>
+      <div class="lb-tags"><span class="lb-tag">Логотип</span><span class="lb-tag">Фирменный стиль</span><span class="lb-tag">Визитки</span></div>
     </div>
   </div>
 </div>
@@ -347,17 +298,11 @@
 <div class="lb" id="lb-soroka" onclick="closeLbOutside(event, 'lb-soroka')">
   <div class="lb-box">
     <button class="lb-close" onclick="closeLb('lb-soroka')">✕</button>
-    <div class="lb-imgs single">
-      <img src="Frame_97.jpg" alt="Soroka Cakery">
-    </div>
+    <div class="lb-imgs single"><img src="Frame_97.jpg" alt="Soroka Cakery"></div>
     <div class="lb-info">
       <h2>Soroka Cakery — домашняя кондитерская</h2>
       <p>Иллюстративный логотип с детализированным тортом под стеклянным куполом — образ, сочетающий уют домашней выпечки и ювелирную точность исполнения. Тёплая коричневая палитра. Брендинг нанесён на крафтовую упаковку для тортов.</p>
-      <div class="lb-tags">
-        <span class="lb-tag">Логотип</span>
-        <span class="lb-tag">Иллюстрация</span>
-        <span class="lb-tag">Брендинг упаковки</span>
-      </div>
+      <div class="lb-tags"><span class="lb-tag">Логотип</span><span class="lb-tag">Иллюстрация</span><span class="lb-tag">Брендинг упаковки</span></div>
     </div>
   </div>
 </div>
@@ -373,17 +318,12 @@
     <div class="lb-info">
       <h2>AC Schule — онлайн-школа немецкого языка</h2>
       <p>Элегантный каллиграфический логотип: буквы AC переплетаются с силуэтом кота — символа любопытства и обучения. Глубокий зелёный цвет на бежевом фоне создаёт сдержанный премиальный образ. Справа — рабочее пространство в Figma с комплектом контентных макетов для соцсетей и рассылок.</p>
-      <div class="lb-tags">
-        <span class="lb-tag">Логотип</span>
-        <span class="lb-tag">Фирменный стиль</span>
-        <span class="lb-tag">Контент-макеты</span>
-        <span class="lb-tag">Figma</span>
-      </div>
+      <div class="lb-tags"><span class="lb-tag">Логотип</span><span class="lb-tag">Фирменный стиль</span><span class="lb-tag">Контент-макеты</span><span class="lb-tag">Figma</span></div>
     </div>
   </div>
 </div>
 
-<!-- LIGHTBOX: AirPods — галерея -->
+<!-- LIGHTBOX: AirPods -->
 <div class="lb" id="lb-airpods" onclick="closeLbOutside(event, 'lb-airpods')">
   <div class="lb-box">
     <button class="lb-close" onclick="closeLb('lb-airpods')">✕</button>
@@ -396,7 +336,7 @@
         <img src="Банер_4.jpg" alt="Баннер вертикаль">
       </div>
       <button class="lb-nav prev" onclick="slideGallery('airpods-track','airpods-dots',-1)">‹</button>
-      <button class="lb-nav next" onclick="slideGallery('airpods-track','airpods-dots', 1)">›</button>
+      <button class="lb-nav next" onclick="slideGallery('airpods-track','airpods-dots',1)">›</button>
       <div class="lb-dots" id="airpods-dots">
         <button class="lb-dot active" onclick="goSlide('airpods-track','airpods-dots',0)"></button>
         <button class="lb-dot" onclick="goSlide('airpods-track','airpods-dots',1)"></button>
@@ -408,12 +348,7 @@
     <div class="lb-info">
       <h2>AirPods Pro — продуктовый дизайн</h2>
       <p>Комплексный проект в едином визуальном стиле: тёмный графитовый фон, серебристо-золотая типографика, профессиональный 3D-рендер продукта. В комплекте: лендинг (десктоп), карточка для маркетплейса, рич-контент и рекламные баннеры под все форматы.</p>
-      <div class="lb-tags">
-        <span class="lb-tag">Лендинг</span>
-        <span class="lb-tag">Карточка маркетплейса</span>
-        <span class="lb-tag">Рич-контент</span>
-        <span class="lb-tag">Баннеры</span>
-      </div>
+      <div class="lb-tags"><span class="lb-tag">Лендинг</span><span class="lb-tag">Карточка маркетплейса</span><span class="lb-tag">Рич-контент</span><span class="lb-tag">Баннеры</span></div>
     </div>
   </div>
 </div>
@@ -433,11 +368,23 @@
       </div>
       <div class="contact-form reveal">
         <h3>Оставить заявку</h3>
-        <div class="form-group"><label>Ваше имя</label><input type="text" placeholder="Как вас зовут?"></div>
-        <div class="form-group"><label>Телефон или email</label><input type="text" placeholder="Как с вами связаться?"></div>
-        <div class="form-group"><label>Задача</label><textarea rows="4" placeholder="Расскажите, что нужно сделать…"></textarea></div>
-        <button class="form-submit" onclick="this.textContent='Отправлено ✓'; this.style.background='#22c55e'; this.disabled=true;">Отправить заявку</button>
-        <p class="form-note">Самозанятый специалист · ИНН 694907719101</p>
+        <form id="contact-form" action="https://formspree.io/f/mnjewweq" method="POST">
+          <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Как вас зовут?" required>
+          </div>
+          <div class="form-group">
+            <label for="contact">Телефон или email</label>
+            <input type="text" id="contact" name="contact" placeholder="Как с вами связаться?" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Задача</label>
+            <textarea id="message" name="message" rows="4" placeholder="Расскажите, что нужно сделать…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Отправить заявку</button>
+          <p class="form-note">Самозанятый специалист · ИНН 694907719101</p>
+        </form>
+        <div class="form-success" id="form-success">✓ Заявка отправлена! Отвечу в течение дня.</div>
       </div>
     </div>
   </div>
@@ -470,7 +417,7 @@
   function closeLbOutside(e, id) { if (e.target === document.getElementById(id)) closeLb(id); }
   document.addEventListener('keydown', e => { if (e.key==='Escape') document.querySelectorAll('.lb.open').forEach(lb => { lb.classList.remove('open'); document.body.style.overflow=''; }); });
 
-  // Gallery carousel
+  // Gallery
   const galleryState = {};
   function slideGallery(trackId, dotsId, dir) {
     const track = document.getElementById(trackId);
@@ -479,15 +426,38 @@
     galleryState[trackId] = (galleryState[trackId] + dir + count) % count;
     updateGallery(trackId, dotsId);
   }
-  function goSlide(trackId, dotsId, idx) {
-    galleryState[trackId] = idx;
-    updateGallery(trackId, dotsId);
-  }
+  function goSlide(trackId, dotsId, idx) { galleryState[trackId] = idx; updateGallery(trackId, dotsId); }
   function updateGallery(trackId, dotsId) {
     const idx = galleryState[trackId] || 0;
     document.getElementById(trackId).style.transform = `translateX(-${idx * 100}%)`;
     document.getElementById(dotsId).querySelectorAll('.lb-dot').forEach((d,i) => d.classList.toggle('active', i===idx));
   }
+
+  // Formspree AJAX
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Отправляю…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Ошибка — попробуйте ещё раз';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Ошибка — попробуйте ещё раз';
+      btn.disabled = false;
+    }
+  });
 </script>
 </body>
 </html>
