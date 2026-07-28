@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подорогина Ольга — Графический и веб-дизайнер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent:   #1A7A4A;
+    --dark:     #1A1A2E;
+    --mid:      #6B7280;
+    --light:    #F5F6FA;
+    --border:   #E5E7EB;
+    --white:    #FFFFFF;
+    --font:     'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 60px;
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-weight: 600; font-size: 15px; color: var(--dark);
+    text-decoration: none; letter-spacing: -0.2px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px; color: var(--mid);
+    text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    font-size: 13px; font-weight: 600;
+    background: var(--accent); color: #fff;
+    padding: 8px 18px; border-radius: 8px;
+    text-decoration: none; transition: opacity .2s;
+  }
+  .nav-cta:hover { opacity: .85; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 24px 60px;
+    background: var(--white);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: var(--light);
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .hero-tag::before {
+    content: ''; width: 24px; height: 2px; background: var(--accent);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700; line-height: 1.1; letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal; color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 17px; color: var(--mid); line-height: 1.7;
+    margin-bottom: 36px; max-width: 420px;
+  }
+  .hero-btns {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    padding: 14px 28px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(26,122,74,.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,122,74,.35);
+  }
+  .btn-outline {
+    background: transparent; color: var(--dark);
+    padding: 14px 28px; border-radius: 10px;
+    border: 1.5px solid var(--border);
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: border-color .2s, color .2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .hero-card {
+    background: #fff; border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    aspect-ratio: 4/3;
+    transition: transform .3s;
+  }
+  .hero-card:hover { transform: translateY(-4px); }
+  .hero-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+  }
+  .hero-card.tall {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 96px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700; letter-spacing: -0.5px; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--mid); max-width: 540px; line-height: 1.7;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    margin-top: 60px;
+  }
+  .about-text p {
+    color: var(--mid); font-size: 16px; line-height: 1.75; margin-bottom: 20px;
+  }
+  .about-text strong { color: var(--dark); font-weight: 600; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .stat {
+    background: var(--light); border-radius: 14px;
+    padding: 24px;
+  }
+  .stat-num {
+    font-size: 36px; font-weight: 700; color: var(--accent); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 13px; color: var(--mid); line-height: 1.4;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--light); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-top: 52px;
+  }
+  .service-card {
+    background: var(--white); border-radius: 16px;
+    padding: 28px; border: 1px solid var(--border);
+    transition: box-shadow .25s, transform .25s;
+  }
+  .service-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,.08);
+    transform: translateY(-3px);
+  }
+  .service-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(26,122,74,.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 22px;
+  }
+  .service-card h3 {
+    font-size: 16px; font-weight: 600; margin-bottom: 10px;
+  }
+  .service-card p {
+    font-size: 14px; color: var(--mid); line-height: 1.6;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--white); }
+  .portfolio-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 48px;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .work {
+    border-radius: 14px; overflow: hidden;
+    position: relative; background: var(--light);
+    aspect-ratio: 4/3;
+    cursor: pointer;
+  }
+  .work.wide { grid-column: span 2; aspect-ratio: 16/7; }
+  .work img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform .45s ease;
+  }
+  .work:hover img { transform: scale(1.04); }
+  .work-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,26,46,.85) 0%, transparent 55%);
+    opacity: 0; transition: opacity .3s;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 24px;
+  }
+  .work:hover .work-overlay { opacity: 1; }
+  .work-overlay h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .work-overlay span { font-size: 12px; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .06em; }
+  .work-cat {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(255,255,255,.92); backdrop-filter: blur(4px);
+    font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em;
+    color: var(--dark); padding: 4px 10px; border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--dark); color: #fff; }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  #contact .section-title { color: #fff; }
+  #contact .section-sub { color: rgba(255,255,255,.55); }
+  .contact-links { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 16px; color: rgba(255,255,255,.75);
+    text-decoration: none; transition: color .2s;
+    padding: 14px 18px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.04);
+  }
+  .contact-link:hover { color: #fff; border-color: rgba(255,255,255,.25); }
+  .contact-link-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(26,122,74,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .contact-form {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px; padding: 36px;
+  }
+  .contact-form h3 {
+    font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-size: 13px; color: rgba(255,255,255,.5);
+    margin-bottom: 6px; font-weight: 500;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%; background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 15px; color: #fff; font-family: var(--font);
+    outline: none; transition: border-color .2s;
+    resize: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,.25); }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer; font-family: var(--font);
+    transition: opacity .2s, transform .2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { opacity: .88; transform: translateY(-1px); }
+  .form-note {
+    font-size: 12px; color: rgba(255,255,255,.3);
+    text-align: center; margin-top: 12px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111; padding: 24px;
+    text-align: center;
+    font-size: 13px; color: rgba(255,255,255,.3);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero::before { display: none; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .work.wide { grid-column: span 2; }
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 64px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .work.wide { grid-column: span 1; aspect-ratio: 4/3; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    .work img, .work-overlay, .btn-primary, .btn-outline,
+    .service-card, .hero-card { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Ольга <span>Подорогина</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#portfolio">Портфолио</a></li>
+      <li><a href="#contact">Контакт</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Написать</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Графический и веб-дизайнер · Тверь</div>
+      <h1>Создаю дизайн,<br>который <em>работает</em></h1>
+      <p class="hero-desc">
+        Логотипы, фирменный стиль, сайты и продуктовый контент для бизнеса.
+        Самозанятый специалист — быстро, профессионально, с гарантией результата.
+      </p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-primary">Смотреть работы</a>
+        <a href="#contact" class="btn-outline">Обсудить проект</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card tall">
+        <img src="Frame_116.jpg" alt="AC Schule логотип">
+      </div>
+      <div class="hero-card">
+        <img src="Frame_97.jpg" alt="Soroka Cakery">
+      </div>
+      <div class="hero-card">
+        <img src="Frame_98.jpg" alt="ЗТК салон красоты">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Обо мне</div>
+      <h2 class="section-title">Дизайнер с насмотренностью<br>и коммерческим подходом</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Меня зовут <strong>Ольга</strong>. Я графический и веб-дизайнер из Твери,
+          работаю как самозанятый специалист. Создаю визуальные решения,
+          которые помогают бизнесу выглядеть профессионально и привлекать клиентов.
+        </p>
+        <p>
+          В портфолио — <strong>логотипы и айдентика</strong> для кафе, пекарен, студий,
+          школ и технологических компаний; <strong>многостраничные сайты</strong> для
+          сферы услуг и торговли; <strong>продуктовый контент</strong> для маркетплейсов.
+        </p>
+        <p>
+          Работаю в Figma, сдаю макеты в срок и остаюсь на связи
+          на всём протяжении проекта.
+        </p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">проектов в портфолио</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">направления: граф. дизайн, веб, маркетплейс</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">работаю официально как самозанятый</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Figma</div>
+          <div class="stat-label">основной инструмент, передача макетов разработчикам</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Услуги</div>
+      <h2 class="section-title">Что я делаю</h2>
+      <p class="section-sub">Полный цикл — от концепции до финального файла, готового к передаче разработчику или в печать.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">✦</div>
+        <h3>Логотип и фирменный стиль</h3>
+        <p>Разработка логотипа, палитры, типографики, визиток и шаблонов носителей. Всё в двух форматах.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">◻</div>
+        <h3>Веб-дизайн</h3>
+        <p>Дизайн сайтов и лендингов в Figma: структура, UX, адаптив под мобильные. Передача макетов разработчику.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">▦</div>
+        <h3>Продуктовый дизайн</h3>
+        <p>Карточки и рич-контент для Wildberries, Ozon и Яндекс Маркета. Рекламные баннеры для таргета и контекста.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">◈</div>
+        <h3>Полиграфия</h3>
+        <p>Визитки, флаеры, брошюры, упаковка. Готовые к печати файлы с вылетами и цветопрофилем CMYK.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⊞</div>
+        <h3>Контент для соцсетей</h3>
+        <p>Шаблоны постов, сторис и обложек в едином фирменном стиле. Вы наполняете — шаблон уже готов.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">◉</div>
+        <h3>Дизайн иконки / логотипа приложения</h3>
+        <p>Адаптация логотипа под иконку App Store и Google Play. Все размеры и форматы в комплекте.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="portfolio-header reveal">
+      <div>
+        <div class="section-tag">Портфолио</div>
+        <h2 class="section-title">Избранные работы</h2>
+      </div>
+      <p style="font-size:14px; color:var(--mid); max-width:280px; line-height:1.6;">
+        Наведите на проект, чтобы узнать подробнее
+      </p>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- ЗТК -->
+      <div class="work reveal">
+        <span class="work-cat">Логотип</span>
+        <img src="Frame_98.jpg" alt="ЗТК салон красоты" loading="lazy">
+        <div class="work-overlay">
+          <h3>Салон красоты «ЗТК»</h3>
+          <span>Логотип · Фирменный стиль · Визитки</span>
+        </div>
+      </div>
+
+      <!-- Soroka Cakery -->
+      <div class="work reveal">
+        <span class="work-cat">Логотип</span>
+        <img src="Frame_97.jpg" alt="Soroka Cakery" loading="lazy">
+        <div class="work-overlay">
+          <h3>Soroka Cakery</h3>
+          <span>Логотип · Брендинг упаковки</span>
+        </div>
+      </div>
+
+      <!-- AC Schule -->
+      <div class="work reveal">
+        <span class="work-cat">Логотип</span>
+        <img src="Frame_116.jpg" alt="AC Schule" loading="lazy">
+        <div class="work-overlay">
+          <h3>AC Schule</h3>
+          <span>Логотип · Онлайн-школа немецкого</span>
+        </div>
+      </div>
+
+      <!-- Glampberry — wide -->
+      <a class="work wide reveal" href="https://glampberry.ru" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <span class="work-cat">Веб-дизайн</span>
+        <img src="Group_97.jpg" alt="Glampberry сайт" loading="lazy">
+        <div class="work-overlay">
+          <h3>Glampberry</h3>
+          <span>Сайт · Глэмпинг в Самаре · ↗ glampberry.ru</span>
+        </div>
+      </a>
+
+      <!-- Дэнглиш -->
+      <a class="work reveal" href="https://xn--e1afmkfd5bzb.xn--p1acf" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <span class="work-cat">Веб-дизайн</span>
+        <img src="Group_98.jpg" alt="Дэнглиш сайт" loading="lazy">
+        <div class="work-overlay">
+          <h3>Языковой клуб «Дэнглиш»</h3>
+          <span>Сайт · Языковой центр · ↗ дэнглишсамара.рф</span>
+        </div>
+      </a>
+
+      <!-- AirPods -->
+      <div class="work reveal">
+        <span class="work-cat">Маркетплейс</span>
+        <img src="Мой_первый_сайт.jpg" alt="AirPods Pro лендинг" loading="lazy">
+        <div class="work-overlay">
+          <h3>AirPods Pro</h3>
+          <span>Лендинг · Карточка · Рич-контент · Маркетплейс</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="section-tag" style="color:rgba(255,255,255,.4);">Контакт</div>
+        <h2 class="section-title">Обсудим<br>ваш проект?</h2>
+        <p class="section-sub">
+          Расскажите о задаче — отвечу в течение дня и предложу оптимальное решение.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link" href="tel:+79961355383">
+            <div class="contact-link-icon">📞</div>
+            +7 (996) 135-53-83
+          </a>
+          <a class="contact-link" href="mailto:olya.podorogina@yandex.ru">
+            <div class="contact-link-icon">✉</div>
+            olya.podorogina@yandex.ru
+          </a>
+          <a class="contact-link" href="https://t.me/pdrgn_o" target="_blank">
+            <div class="contact-link-icon">✈</div>
+            Написать в Telegram
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <h3>Оставить заявку</h3>
+        <div class="form-group">
+          <label>Ваше имя</label>
+          <input type="text" placeholder="Как вас зовут?">
+        </div>
+        <div class="form-group">
+          <label>Телефон или email</label>
+          <input type="text" placeholder="Как с вами связаться?">
+        </div>
+        <div class="form-group">
+          <label>Задача</label>
+          <textarea rows="4" placeholder="Расскажите, что нужно сделать…"></textarea>
+        </div>
+        <button class="form-submit" onclick="this.textContent='Отправлено ✓'; this.style.background='#22c55e'; this.disabled=true;">
+          Отправить заявку
+        </button>
+        <p class="form-note">Самозанятый специалист · ИНН 694907719101</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Подорогина Ольга Вячеславна · Самозанятый дизайнер · г. Тверь
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+
+  // Nav active link highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
+</html>
